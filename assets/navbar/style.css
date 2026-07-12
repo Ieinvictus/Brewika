@@ -1,0 +1,1122 @@
+/*==================================
+BREWIKA PREMIUM NAVBAR
+PART 1
+==================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"Poppins",sans-serif;
+background:#fff;
+overflow-x:hidden;
+}
+
+
+:root{
+
+--orange:#ff6b00;
+--orange2:#ff8c00;
+--white:#ffffff;
+--black:#161616;
+--text:#4b4b4b;
+--line:#ececec;
+
+}
+
+/*==================================
+NAVBAR
+==================================*/
+
+.brew-navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:82px;
+
+padding:0 20px 0 0;
+/* Top Right Bottom Left */
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+background: linear-gradient(
+  90deg,
+  #c2b2a1,
+  #d3c5b6
+);
+  
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(0,0,0,.05);
+
+z-index:99999;
+
+transition:.35s;
+
+}
+
+/* Logo */
+
+.logo-box{
+
+margin:0;
+
+padding:0;
+
+height:82px;
+
+display:flex;
+
+align-items:center;
+}
+/*==================================
+LOGO SHAPE
+==================================*/
+
+/*==================================
+BREWIKA SHAPE LOGO
+==================================*/
+
+.brand-logo{
+
+display:flex;
+
+align-items:center;
+
+text-decoration:none;
+
+z-index:999;
+
+}
+
+.brand-shape{
+
+position:relative;
+margin:0;
+width:230px;
+
+height:75px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#b60000;
+
+clip-path:polygon(
+0 0,
+100% 0,
+84% 100%,
+0 100%
+);
+
+overflow:hidden;
+
+transition:.35s ease;
+
+box-shadow:
+0 15px 35px rgba(255,106,0,.30);
+
+}
+
+/* Shine */
+
+.brand-shape::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-80%;
+
+width:40%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+
+transform:skewX(-25deg);
+
+animation:shine 5s linear infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+
+left:180%;
+
+}
+
+}
+
+/* Text */
+
+.brand-shape span{
+
+position:relative;
+
+z-index:5;
+
+font-family:"Poppins",sans-serif;
+
+font-size:30px;
+
+font-weight:800;
+
+letter-spacing:10px;
+
+color:#fff;
+
+text-transform:uppercase;
+
+}
+
+/* Hover */
+
+.brand-shape:hover{
+
+transform:translateY(-2px);
+
+filter:brightness(1.08);
+
+box-shadow:
+0 20px 45px rgba(255,106,0,.40);
+
+}
+
+/* Tablet */
+
+@media(max-width:767px){
+
+.brand-shape{
+
+width:170px;
+
+height:72px;
+
+}
+
+.brand-shape span{
+
+font-size:22px;
+
+letter-spacing:6px;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.brand-shape{
+
+width:130px;
+
+height:64px;
+
+}
+
+.brand-shape span{
+
+font-size:17px;
+
+letter-spacing:3px;
+
+}
+
+}
+/*==================================
+HIDE DESKTOP MENU
+==================================*/
+
+.desktop-menu{
+
+display:none !important;
+
+}
+
+/*==================================
+MENU BUTTON
+==================================*/
+
+.menu-btn{
+
+width:48px;
+
+height:48px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:5px;
+
+background: linear-gradient(
+  90deg,
+  #c2b2a1,
+  #d3c5b6
+);
+  
+
+border:2px solid #222;
+
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.35s;
+
+outline:none;
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+.menu-btn:hover{
+
+border-color:#222;
+
+background: linear-gradient(
+  90deg,
+  #c2b2a1,
+  #d3c5b6
+);
+  
+
+}
+
+.menu-btn span{
+
+width:22px;
+
+height:2px;
+
+background:#222;
+
+border-radius:10px;
+
+transition:.35s;
+
+}
+
+.menu-btn:hover span{
+
+background:#222;
+
+}
+
+/*==================================
+FULL SCREEN MENU
+PART 2
+==================================*/
+
+.menu-overlay{
+
+position:fixed;
+
+top:0;
+right:-100%;
+
+width:100%;
+height:100vh;
+
+display:flex;
+
+background:#fff;
+
+z-index:999999;
+
+transition:right .55s cubic-bezier(.77,0,.175,1);
+
+overflow:hidden;
+
+}
+
+.menu-overlay.active{
+
+right:0;
+
+}
+
+/*==================================
+LEFT ORANGE PANEL
+==================================*/
+/* Hide Left Panel */
+
+.menu-left{
+
+display:none;
+
+}
+
+/* Full Width */
+
+.menu-right{
+
+flex:1;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#fff;
+
+}
+
+/* Navigation */
+
+.mobile-nav{
+
+width:100%;
+
+max-width:100%;
+
+}
+
+/* Menu Item */
+
+.mobile-nav a{
+
+position:relative;
+
+display:flex;
+text-decoration:none;
+align-items:center;
+
+justify-content:center;
+
+width:100%;
+
+height:76px;
+
+font-size:28px;
+
+font-weight:600;
+
+color:#222;
+
+border-bottom:1px solid #d9d9d9;
+
+transition:.35s;
+
+}
+
+/* Hover */
+
+.mobile-nav a:hover{
+
+background:#fafafa;
+
+color:#ff6b00;
+
+}
+/* Right Arrow */
+
+.mobile-nav a::before{
+
+content:"›";
+
+position:absolute;
+
+right:24px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+font-size:32px;
+
+font-weight:300;
+
+color:#d9782b;
+
+transition:.35s;
+
+}
+
+.mobile-nav a:hover::before{
+
+right:18px;
+
+color:#ff6b00;
+
+}
+/* Active */
+
+.mobile-nav a.active{
+
+color:#ff6b00;
+
+}
+
+/* Remove underline animation */
+
+.mobile-nav a::after{
+
+display:none;
+
+
+
+}
+
+
+
+/*==================================
+CLOSE BUTTON
+==================================*/
+
+.close-menu{
+
+position:absolute;
+
+top:24px;
+
+right:24px;
+
+width:52px;
+
+height:52px;
+
+border:none;
+
+background:#fff;
+
+border-radius:50%;
+
+font-size:34px;
+
+font-weight:300;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:#222;
+
+transition:.35s;
+
+}
+
+.close-menu:hover{
+
+background:#ff6b00;
+
+color:#fff;
+
+transform:rotate(90deg);
+
+box-shadow:0 10px 30px rgba(255,107,0,.35);
+
+}
+
+/*==================================
+MENU SCROLL
+==================================*/
+
+.menu-right{
+
+overflow-y:auto;
+
+scrollbar-width:none;
+
+}
+
+.menu-right::-webkit-scrollbar{
+
+display:none;
+
+}
+
+/*==================================
+PART 3
+DESKTOP + TABLET
+==================================*/
+
+/*==========================
+1600px
+==========================*/
+
+@media (max-width:1600px){
+
+.brew-navbar{
+
+padding:0 32px;
+
+}
+
+.logo-shape{
+
+width:170px;
+
+}
+
+.menu-left{
+
+width:170px;
+
+}
+
+.mobile-nav{
+
+width:500px;
+
+}
+
+}
+
+/*==========================
+1440px
+==========================*/
+
+@media (max-width:1440px){
+
+.brew-navbar{
+
+height:78px;
+
+padding:0 28px;
+
+}
+
+.logo-box{
+
+height:78px;
+
+}
+
+.logo-shape{
+
+width:160px;
+
+height:78px;
+
+padding-left:22px;
+
+}
+
+.logo-shape img{
+
+height:30px;
+
+}
+
+.menu-btn{
+
+width:46px;
+
+height:46px;
+
+}
+
+.menu-left{
+
+width:155px;
+
+}
+
+.mobile-nav a{
+
+font-size:28px;
+
+height:74px;
+
+}
+
+}
+
+/*==========================
+1200px
+==========================*/
+
+@media (max-width:1200px){
+
+.brew-navbar{
+
+padding:0 22px;
+
+}
+
+.logo-shape{
+
+width:145px;
+
+padding-left:18px;
+
+}
+
+.logo-shape img{
+
+height:28px;
+
+}
+
+.menu-btn{
+
+width:44px;
+
+height:44px;
+
+}
+
+.menu-btn span{
+
+width:20px;
+
+}
+
+.menu-left{
+
+width:140px;
+
+}
+
+.mobile-nav{
+
+width:440px;
+
+}
+
+.mobile-nav a{
+
+height:70px;
+
+font-size:25px;
+
+}
+
+.close-menu{
+
+width:48px;
+
+height:48px;
+
+font-size:30px;
+
+}
+
+}
+
+/*==========================
+992px
+==========================*/
+
+@media (max-width:992px){
+
+.brew-navbar{
+
+height:74px;
+
+padding:0 18px;
+
+}
+
+.logo-box{
+
+height:74px;
+
+}
+
+.logo-shape{
+
+width:130px;
+
+height:74px;
+
+padding-left:16px;
+
+}
+
+.logo-shape img{
+
+height:25px;
+
+}
+
+.menu-btn{
+
+width:42px;
+
+height:42px;
+
+}
+
+.menu-btn span{
+
+width:18px;
+
+}
+
+.menu-left{
+
+width:120px;
+
+}
+
+.menu-left img{
+
+width:78px;
+
+}
+
+.mobile-nav{
+
+width:100%;
+
+max-width:380px;
+
+}
+
+.mobile-nav a{
+
+font-size:22px;
+
+height:66px;
+
+}
+
+.close-menu{
+
+top:18px;
+
+right:18px;
+
+}
+
+}
+
+/*==================================
+PART 4
+767px
+==================================*/
+
+@media (max-width:767px){
+
+.brew-navbar{
+
+height:70px;
+
+padding:0 16px;
+
+}
+
+.logo-box{
+
+height:70px;
+
+}
+
+.logo-shape{
+
+width:115px;
+
+height:70px;
+
+padding-left:14px;
+
+clip-path:polygon(0 0,100% 0,75% 100%,0 100%);
+
+}
+
+.logo-shape img{
+
+height:22px;
+
+}
+
+.menu-btn{
+
+width:42px;
+
+height:42px;
+
+}
+
+.menu-btn span{
+
+width:18px;
+
+height:2px;
+
+}
+
+.menu-left{
+
+width:90px;
+
+}
+
+.menu-left img{
+
+width:60px;
+
+margin-top:12px;
+
+}
+
+.menu-right{
+
+padding:70px 20px 30px;
+
+}
+
+.mobile-nav{
+
+max-width:100%;
+
+}
+
+.mobile-nav a{
+
+height:62px;
+
+font-size:20px;
+
+font-weight:600;
+
+}
+
+.mobile-nav a::after{
+
+bottom:14px;
+
+}
+
+.mobile-nav a.active::after,
+.mobile-nav a:hover::after{
+
+width:70px;
+
+}
+
+.close-menu{
+
+top:14px;
+
+right:14px;
+
+width:42px;
+
+height:42px;
+
+font-size:30px;
+
+}
+
+}
+
+
+/*==================================
+480px
+==================================*/
+
+@media (max-width:480px){
+
+.brew-navbar{
+
+height:64px;
+
+padding:0 12px;
+
+}
+
+.logo-box{
+
+height:64px;
+
+}
+
+.logo-shape{
+
+width:95px;
+
+height:64px;
+
+padding-left:12px;
+
+}
+
+.logo-shape img{
+
+height:18px;
+
+}
+
+.menu-btn{
+
+width:40px;
+
+height:40px;
+
+}
+
+.menu-btn span{
+
+width:17px;
+
+height:2px;
+
+}
+
+.menu-left{
+
+width:70px;
+
+}
+
+.menu-left img{
+
+width:46px;
+
+margin-top:14px;
+
+}
+
+.menu-right{
+
+padding:60px 15px 20px;
+
+}
+
+.mobile-nav a{
+
+height:56px;
+
+font-size:18px;
+
+font-weight:600;
+
+letter-spacing:.3px;
+
+}
+
+.mobile-nav a::after{
+
+bottom:12px;
+
+}
+
+.mobile-nav a.active::after,
+.mobile-nav a:hover::after{
+
+width:55px;
+
+}
+
+.close-menu{
+
+top:10px;
+
+right:10px;
+
+width:38px;
+
+height:38px;
+
+font-size:26px;
+
+}
+
+/* Better touch */
+
+.menu-btn,
+.mobile-nav a,
+.close-menu{
+
+-webkit-tap-highlight-color:transparent;
+
+touch-action:manipulation;
+
+}
+
+}
+
+
+/*==================================
+LARGE DESKTOP
+==================================*/
+
+@media (min-width:1800px){
+
+.brew-navbar{
+
+padding:0 60px;
+
+}
+
+.logo-shape{
+
+width:220px;
+
+height:90px;
+
+}
+
+.logo-shape img{
+
+height:40px;
+
+}
+
+.menu-btn{
+
+width:52px;
+
+height:52px;
+
+}
+
+.menu-btn span{
+
+width:24px;
+
+}
+
+.mobile-nav a{
+
+font-size:34px;
+
+height:84px;
+
+}
+
+  }
