@@ -80,7 +80,7 @@ window.addEventListener("load",()=>{
 
     typeBrand();
 
-    setTimeout(hideLoader,2500);
+    setTimeout(hideLoader,3000);
 
 });
 
